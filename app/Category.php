@@ -11,6 +11,11 @@ class Category extends Model
         return $this->hasMany(SubCategory::class, 'category');
     }
 
+    public function artists()
+    {
+        return $this->hasMany(Artist::class, 'category');
+    }
+
     public function contents()
     {
         return $this->hasMany(Content::class, 'category');

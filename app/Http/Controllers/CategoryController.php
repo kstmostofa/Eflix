@@ -11,12 +11,11 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('category.index');
+        return view('category.index', compact('categories'));
     }
 
     public function create()
     {
-        $whitelist = Category::all();
         return view('category.create');
     }
 
@@ -27,15 +26,13 @@ class CategoryController extends Controller
         $category->slug = Str::slug($request->name);
         $category->is_auth = boolval($request->is_auth);
         $category->status = boolval($request->status);
-
-
         $category->save();
-        return redirect()->route('Category.index');
+        return redirect()->route('category.index');
     }
 
     public function destroy($id)
     {
         Category::destroy($id);
-        return redirect()->route('Category.index');
+        return redirect()->route('category.index');
     }
 }

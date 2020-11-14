@@ -11,8 +11,8 @@ class ArtistController extends Controller
 {
     public function index()
     {
-        $artist = Artist::all();
-        return view('artist.index');
+        $artists = Artist::all();
+        return view('artist.index', compact('artists'));
     }
 
     public function create()
@@ -31,12 +31,12 @@ class ArtistController extends Controller
         $artist->bio = $request->bio;
         $artist->image = $request->image->store('upload/artist');
         $artist->save();
-        return redirect()->route('Artist.index');
+        return redirect()->route('artist.index');
     }
 
     public function destroy($id)
     {
         Category::destroy($id);
-        return redirect()->route('Category.index');
+        return redirect()->route('artist.index');
     }
 }

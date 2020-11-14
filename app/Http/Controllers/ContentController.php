@@ -13,8 +13,11 @@ class ContentController extends Controller
 {
     public function index()
     {
-        $content = Content::all();
-        return view('content.index');
+        $categories = Category::all();
+        $subcategories = SubCategory::all();
+        $artists = Artist::all();
+        $contents = Content::all();
+        return view('content.index', compact('categories', 'subcategories', 'artists', 'contents'));
     }
 
     public function create()
@@ -38,12 +41,12 @@ class ContentController extends Controller
         $content->is_auth = boolval($request->is_auth);
         $content->status = boolval($request->status);
         $content->save();
-        return redirect()->route('SubCategory.index');
+        return redirect()->route('content.index');
     }
 
     public function destroy($id)
     {
         Category::destroy($id);
-        return redirect()->route('SubCategory.index');
+        return redirect()->route('content.index');
     }
 }

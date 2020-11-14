@@ -15,6 +15,12 @@ class APIController extends Controller
         return $category;
     }
 
+    public function singlecontent($slug)
+    {
+        $content = Content::where('slug', $slug)->first();
+        return $content;
+    }
+
     public function categorycontent($slug)
     {
         $category = Category::where('slug', $slug)->with(['subcategory', 'contents'])->first();

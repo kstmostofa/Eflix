@@ -18,6 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('Category', 'API\v1\APIController@category');
+Route::post('category', 'API\v1\APIController@category');
 Route::post('CategoryContent/{slug}', 'API\v1\APIController@categorycontent');
+Route::post('contentdetails/{slug}', 'API\v1\APIController@singlecontent');
+
+
 // Route::post('HomeContent', 'API\v1\APIController@homecontent');

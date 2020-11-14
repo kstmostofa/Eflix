@@ -242,22 +242,24 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Category',
+            'url'  => '/category',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'text' => 'Sub Category',
+            'url'  => 'subcategory',
             'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Content',
+            'url'  => '/content',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Artist',
+            'url'  => '/artist',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text'    => 'multilevel',

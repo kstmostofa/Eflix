@@ -6,17 +6,16 @@
             <div class="row">
                 <div class="col-md-5">
                     <!-- left column -->
-                    @include('artist.create')
+                    @include('contenttype.create')
                 </div>
                 <!-- general form elements -->
-
 
                 <!-- right column -->
                 <div class="col-md-7">
                     <!-- general form elements disabled -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">All Categories</h3>
+                            <h3 class="card-title">All Content Types</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">
@@ -24,23 +23,19 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" style="width: 5%">#</th>
-                                        <th scope="col">Category Name</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Bio</th>
+                                        <th scope="col">Content Type</th>
                                         <th scope="col" style="width: 20%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($artists as $key => $item)
+                                    @foreach ($contenttypes as $key => $item)
                                         <tr>
                                             <th scope="row">{{ $key + 1 }}</th>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->title }}</td>
-                                            <td>{{ $item->bio }}</td>
                                             <td>
-                                                <a href="{{ route('artist.edit', $item->id) }}"
+                                                <a href="{{ route('contenttype.edit', $item->id) }}"
                                                     class="btn btn-xs btn-warning">Edit</a>
-                                                <a href="{{ route('artist.destroy', $item->id) }}"
+                                                <a href="{{ route('contenttype.destroy', $item->id) }}"
                                                     class="btn btn-xs btn-danger">Delete</a>
                                             </td>
                                         </tr>

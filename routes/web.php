@@ -21,9 +21,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('category', 'CategoryController');
+Route::get('/category/destroy/{id}', 'CategoryController@destroy')->name('category.destroy');
 
-Route::resource('sub-category', 'SubCategoryController');
+Route::resource('subcategory', 'SubCategoryController');
+Route::get('/subcategory/destroy/{id}', 'SubCategoryController@destroy')->name('subcategory.destroy');
 
 Route::resource('content', 'ContentController');
+Route::get('/content/destroy/{id}', 'ContentController@destroy')->name('content.destroy');
 
 Route::resource('artist', 'ArtistController');
+Route::get('/artist/destroy/{id}', 'ArtistController@destroy')->name('artist.destroy');
+
+Route::resource('contenttype', 'ContentTypeController');

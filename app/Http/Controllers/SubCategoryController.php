@@ -12,7 +12,8 @@ class SubCategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('subcategory.index');
+        $subcategories = SubCategory::all();
+        return view('subcategory.index', compact('categories', 'subcategories'));
     }
 
     public function create()
@@ -30,12 +31,12 @@ class SubCategoryController extends Controller
         $category->is_auth = boolval($request->is_auth);
         $category->status = boolval($request->status);
         $category->save();
-        return redirect()->route('SubCategory.index');
+        return redirect()->route('subcategory.index');
     }
 
     public function destroy($id)
     {
-        Category::destroy($id);
-        return redirect()->route('SubCategory.index');
+        SubCategory::destroy($id);
+        return redirect()->route('subcategory.index');
     }
 }
