@@ -33,3 +33,5 @@ Route::resource('artist', 'ArtistController');
 Route::get('/artist/destroy/{id}', 'ArtistController@destroy')->name('artist.destroy');
 
 Route::resource('contenttype', 'ContentTypeController');
+Route::resource('sliders', 'SliderController');
+
