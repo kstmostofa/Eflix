@@ -44,6 +44,15 @@ class ContentController extends Controller
         return redirect()->route('content.index');
     }
 
+    public function edit($id)
+    {
+        $categories = Category::all();
+        $subcategories = SubCategory::all();
+        $artists = Artist::all();
+        $contents = Content::findOrFail($id);
+        return view('content.edit', compact('categories', 'subcategories', 'artists', 'contents'));
+    }
+
     public function destroy($id)
     {
         Category::destroy($id);

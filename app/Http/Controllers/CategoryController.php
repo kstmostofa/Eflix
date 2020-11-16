@@ -30,6 +30,28 @@ class CategoryController extends Controller
         return redirect()->route('category.index');
     }
 
+    public function edit($id)
+    {
+        $categories = Category::findOrFail($id);
+        return view('category.edit', compact('categories'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $category = Category::findOrFail($id);
+        $category->name = $request->name;
+        $category->slug = Str::slug($request->name);
+        $category->is_auth = boolval($request->is_auth);
+        $category->status = boolval($request->status);
+        // $category->save();
+        if ($category->save()) {
+            return redirect()->route('category.index')->withSuccess('Category has been updated successfully');
+        } else {
+            return back()->withFail('Something went wrong');
+        }
+        return redirect()->route('category.index');
+    }
+
     public function destroy($id)
     {
         Category::destroy($id);
